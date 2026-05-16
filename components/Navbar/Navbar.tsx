@@ -1,9 +1,8 @@
-"use client";
 
 import Image from "next/image";
-import {  useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
+import logo from "../../public/images/Internshala-Logo.png";
 
 type props = {
   navbarOpen: boolean;
@@ -17,7 +16,7 @@ export default function Navbar({navbarOpen,setNavbarOpen}: props) {
       <div className=" text-black items-center h-full flex">
         <Image
           className="cursor-pointer "
-          src="/images/internshala-logo.png"
+          src={logo}
           alt="Internshala"
           width={120}
           height={40}

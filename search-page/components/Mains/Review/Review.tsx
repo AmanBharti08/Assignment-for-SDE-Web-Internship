@@ -122,7 +122,7 @@ export default function Review() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="min-w-[300px] max-w-[300px] bg-white p-5 rounded-xl shadow-md flex flex-col justify-between"
+              className="min-w-75 max-w-75 bg-white p-5 rounded-xl shadow-md flex flex-col justify-between"
             >
               <div>
                 <h3 className="font-bold text-lg mb-3">

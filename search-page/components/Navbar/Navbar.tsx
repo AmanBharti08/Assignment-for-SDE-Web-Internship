@@ -12,9 +12,6 @@ type props = {
 
 export default function Navbar({navbarOpen,setNavbarOpen}: props) {
 
-
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="flex justify-between items-center lg:px-32 md:px-8 sm:px-10 px-5 h-16 w-full ">
       <div className=" text-black items-center h-full flex">

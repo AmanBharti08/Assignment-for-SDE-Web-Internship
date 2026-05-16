@@ -3,11 +3,14 @@
 import { useEffect, useState } from "react";
 
 import { CiFilter } from "react-icons/ci";
+import { RxCross1 } from "react-icons/rx";
 
 type FiltersProps = {
   className?: string;
   filters: any;
   setFilters: any;
+  filtersOpen: boolean;
+  setFiltersOpen: any;
   profileOptions: string[];
   locationOptions: string[];
   durationOptions: string[];
@@ -17,6 +20,8 @@ export default function Filters({
   className,
   filters,
   setFilters,
+  filtersOpen,
+  setFiltersOpen,
   profileOptions,
   locationOptions,
   durationOptions,
@@ -26,7 +31,12 @@ export default function Filters({
   const [showDurationDropdown, setShowDurationDropdown] = useState(false);
 
   return (
-    <div className={`${className} lg:flex lg:flex-col overflow-visible hidden`}>
+    <div className={`${className} lg:flex lg:flex-col overflow-visible relative`}>
+      
+      {/* Cross to close */}
+      <RxCross1 className="absolute top-6 right-6 lg:hidden" onClick={()=>{setFiltersOpen(!filtersOpen)}}/>
+
+      {/* heading with icon */}
       <h2 className="flex items-center gap-2 font-medium">
         <CiFilter className="text-blue-600" />
         Filters
@@ -207,6 +217,10 @@ export default function Filters({
           <span>8k</span>
           <span>10k</span>
         </div>
+      </div>
+      <div className="flex w-full justify-end items-center gap-6  ">
+        <p className="text-blue-600 cursor-pointer">Clear All</p>
+        <button className="text-white bg-blue-400 rounded-md p-2 px-4 cursor-pointer lg:hidden" onClick={()=>{setFiltersOpen(!filtersOpen)}}>Apply</button>
       </div>
     </div>
   );

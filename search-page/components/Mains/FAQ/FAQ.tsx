@@ -54,7 +54,6 @@ export default function FAQ({ className }: Props) {
       <button
         className="flex items-center justify-center gap-1 rounded-md border border-blue-500 px-4 py-2 text-sm font-semibold text-blue-500 shadow-sm cursor-pointer transition hover:scale-101"
         onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
       >
         Frequently Asked Questions
         <MdArrowDropDown
@@ -67,7 +66,7 @@ export default function FAQ({ className }: Props) {
       {/* FAQ CONTAINER */}
       <div
         className={`overflow-hidden transition-all duration-500 ${
-          isOpen ? "max-h-[1000px] opacity-100 mt-6" : "max-h-0 opacity-0"
+          isOpen ? "max-h-250 opacity-100 mt-6" : "max-h-0 opacity-0"
         }`}
       >
         {faqData.map((faq, index) => {
@@ -79,7 +78,6 @@ export default function FAQ({ className }: Props) {
               <button
                 onClick={() => setOpenIndex(isAnswerOpen ? null : index)}
                 className="flex w-full items-center justify-between text-left font-medium cursor-pointer"
-                aria-expanded={isAnswerOpen}
               >
                 <span>{faq.question}</span>
 

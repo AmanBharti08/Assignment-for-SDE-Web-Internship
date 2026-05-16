@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [filtersOpen, setFiltersOpen] = useState(false);
 
   return (
     <div className="flex flex-col relative">

@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 import Filters from "./Filters/Filters";
 import Jobs from "./Jobs/Jobs";
 
+import { CiFilter } from "react-icons/ci";
+
 type Props = {
   className?: string;
-}
+};
 
-export default function FilterAndJobs({className}:Props) {
+export default function FilterAndJobs({ className }: Props) {
   const [jobs, setJobs] = useState<any[]>([]);
   const [filteredJobs, setFilteredJobs] = useState<any[]>([]);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const [filters, setFilters] = useState({
     profile: "",
@@ -93,10 +96,45 @@ export default function FilterAndJobs({className}:Props) {
 
   return (
     <div className={className}>
-      <h2 className="flex justify-center  font-bold text-lg">{filteredJobs.length} Total Internships</h2>
+      <div className="flex justify-between lg:justify-center">
+        <div className="lg:hidden">
+          <button
+            className="rounded-4xl bg-white shadow-md flex justify-between items-center gap-2 p-2 px-4"
+            onClick={() => setFiltersOpen(!filtersOpen)}
+          >
+            Filters
+            <CiFilter className="text-blue-600" />
+          </button>
+        </div>
+        <div className="flex flex-col lg:items-center items-end">
+          <h2 className="  font-medium text-lg  text-gray-800">
+            {filteredJobs.length} Total Internships
+          </h2>
+          <p className="text-xs text-gray-700">
+            Latest Summer Internships in India
+          </p>
+        </div>
+      </div>
+      {filtersOpen && (
+        <div className="fixed inset-0 z-40 bg-white">
+          <Filters
+            className="w-full h-screen z-50 p-6 px-10 flex flex-col items-center gap-4"
+            filtersOpen={filtersOpen}
+            setFiltersOpen={setFiltersOpen}
+            filters={filters}
+            setFilters={setFilters}
+            profileOptions={profileOptions}
+            locationOptions={locationOptions}
+            durationOptions={durationOptions}
+          />
+        </div>
+      )}
+
       <div className="flex gap-10">
         <Filters
-          className="w-[35%] bg-white p-6 flex flex-col items-center rounded-md shadow-sm gap-4 h-min sticky top-4"
+          className="w-[35%] bg-white p-6 lg:flex flex-col items-center rounded-md shadow-sm gap-4 h-min sticky top-4 hidden"
+          filtersOpen={filtersOpen}
+          setFiltersOpen={setFiltersOpen}
           filters={filters}
           setFilters={setFilters}
           profileOptions={profileOptions}
@@ -104,9 +142,8 @@ export default function FilterAndJobs({className}:Props) {
           durationOptions={durationOptions}
         />
 
-        <Jobs className="lg:w-[65%] flex flex-col gap-4" jobs={filteredJobs} w-full />
+        <Jobs className="lg:w-[65%] flex flex-col gap-4" jobs={filteredJobs} />
       </div>
-
     </div>
   );
 }

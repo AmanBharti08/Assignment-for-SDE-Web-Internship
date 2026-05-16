@@ -1,9 +1,25 @@
 import Cards from "./Cards";
 
-export default function Jobs() {
+type Props = {
+    className?: string;
+    jobs: any[];
+};
+
+export default function Jobs({
+    className,
+    jobs,
+}: Props) {
+
     return (
-        <div>
-            <Cards/>
+        <div className={className}>
+
+            {jobs.map((job: any) => (
+                <Cards
+                    key={job.id}
+                    job={job}
+                />
+            ))}
+
         </div>
-    )
+    );
 }

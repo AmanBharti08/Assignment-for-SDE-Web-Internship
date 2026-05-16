@@ -11,7 +11,7 @@ return(
         <FilterAndJobs className="lg:px-30 md:px-20 sm:px-10 p-5 flex flex-col gap-10 mt-12"/>
         <FAQ className="lg:px-64 md:px-36 sm:px-10 p-5 flex flex-col gap-10 mt-12"/>
         <Review/>
-        <Extras className="lg:px-64 md:px-36 sm:px-10 p-5 flex flex-col gap-10 mt-12"/>
+        <Extras className="lg:px-30 md:px-20 sm:px-10 p-5 flex flex-col gap-10 mt-12"/>
     </div>
 )
 }

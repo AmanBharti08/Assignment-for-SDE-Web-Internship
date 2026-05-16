@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "../components/Navbar/Navbar";
 import Mains from "../components/Mains/Mains";
+import Footer from "../components/Footer/Footer";
 import { useState } from "react";
 
 export default function Home() {
@@ -47,6 +48,7 @@ export default function Home() {
       )}
       <Navbar navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
       <Mains />
+      <Footer/>
     </div>
   );
 }

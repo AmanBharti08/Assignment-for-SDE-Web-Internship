@@ -9,44 +9,43 @@ type Props = {
   className?: string;
 };
 
+const faqData = [
+  {
+    question:
+      "Q. How do I search for internships in my preferred category/profile?",
+    answer:
+      "Click here if you are looking for internships. Next, update your preferred profile or location on the web page and use relevant filters to find internships as per your preference.",
+  },
+  {
+    question: "Q. How can I apply for an internship on Internshala?",
+    answer:
+      "You can apply for an internship on Internshala using the following steps.",
+  },
+  {
+    question: "Q. Do I need to pay to apply for an internship on Internshala?",
+    answer:
+      "Absolutely not! Internshala is a free platform. You don't have to pay anything to apply for internships on Internshala.",
+  },
+  {
+    question: "Q. What all internships are available on Internshala?",
+    answer:
+      "You can find 45,000+ internships, work from home internships, and part-time internships in your preferred location or profile on Internshala.",
+  },
+  {
+    question: "Q. Are there any courses that offer placement?",
+    answer:
+      "You can check out the available placement-oriented courses on the platform.",
+  },
+  {
+    question: "Q. How do I get certified online?",
+    answer:
+      "Internshala offers a number of certified courses to improve your skill set.",
+  },
+];
+
 export default function FAQ({ className }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const faqData = [
-    {
-      question:
-        "Q. How do I search for internships in my preferred category/profile?",
-      answer:
-        "Click here if you are looking for internships. Next, update your preferred profile or location on the web page and use relevant filters to find internships as per your preference.",
-    },
-    {
-      question: "Q. How can I apply for an internship on Internshala?",
-      answer:
-        "You can apply for an internship on Internshala using the following steps.",
-    },
-    {
-      question:
-        "Q. Do I need to pay to apply for an internship on Internshala?",
-      answer:
-        "Absolutely not! Internshala is a free platform. You don't have to pay anything to apply for internships on Internshala.",
-    },
-    {
-      question: "Q. What all internships are available on Internshala?",
-      answer:
-        "You can find 45,000+ internships, work from home internships, and part-time internships in your preferred location or profile on Internshala.",
-    },
-    {
-      question: "Q. Are there any courses that offer placement?",
-      answer:
-        "You can check out the available placement-oriented courses on the platform.",
-    },
-    {
-      question: "Q. How do I get certified online?",
-      answer:
-        "Internshala offers a number of certified courses to improve your skill set.",
-    },
-  ];
 
   return (
     <div className={className}>
